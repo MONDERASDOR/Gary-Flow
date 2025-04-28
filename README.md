@@ -8,7 +8,7 @@ Gary Flow is a next-generation, ultra-high-performance Minecraft proxy server de
 - Plugin system in Java for Paper plugin compatibility
 - Cross-platform: Linux (epoll) and Windows (IOCP)
 - Supports Minecraft 1.7 through 1.20+
-- No artificial limitations, no lag, no TODOs—production-ready
+- No artificial limitations, no lag. nothing to be scared of
 - **Comprehensive protocol engine:** Real packet parsing, translation, and handshake/login/play support for 1.7, 1.8, 1.12, 1.16, 1.19, 1.20
 - **Universal plugin/event system:** Java API for all major proxy events (join, quit, chat, server switch, etc), Paper/Bungee compatibility
 - **JNI bridge:** Real-time event dispatch between C core and Java plugins
