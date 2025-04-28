@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gary Flow &mdash; Universal Minecraft Proxy</title>
+  <meta name="description" content="Gary Flow: The most advanced, high-performance, multi-version Minecraft proxy. Free, open source, and plugin compatible.">
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <style>
+    :root {
+      --primary: #00f0ff;
+      --secondary: #2af598;
+      --dark: #181e24;
+      --accent: #007cf0;
+      --text: #eaf6fb;
+      --block: #222;
+      --block-inner: #444;
+      --glow: 0 0 18px #00f0ff, 0 0 6px #2af598;
+    }
+    html, body {
+      margin: 0; padding: 0; box-sizing: border-box;
+      background: linear-gradient(135deg, #181e24 0%, #233046 100%);
+      color: var(--text);
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      min-height: 100vh;
+    }
+    header {
+      display: flex; align-items: center; gap: 28px;
+      padding: 48px 0 20px 0; justify-content: center;
+    }
+    .logo {
+      width: 100px; height: 100px; flex-shrink: 0;
+      background: none;
+      filter: drop-shadow(var(--glow));
+    }
+    .title {
+      font-size: 3.2rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; color: transparent;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 24px #00f0ff33;
+    }
+    .tagline {
+      font-size: 1.3rem; color: var(--secondary); margin-top: 6px; letter-spacing: 1px;
+    }
+    nav {
+      display: flex; gap: 28px; justify-content: center; margin: 36px 0 16px 0;
+    }
+    nav a {
+      color: var(--primary); text-decoration: none; font-weight: 500;
+      font-size: 1.1rem; padding: 8px 18px; border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background: var(--primary); color: #181e24;
+    }
+    main {
+      max-width: 900px; margin: 0 auto; background: #212b36ee;
+      border-radius: 18px; box-shadow: 0 4px 32px #00f0ff22;
+      padding: 36px 38px 32px 38px; margin-bottom: 48px;
+    }
+    h2 {
+      margin-top: 40px; margin-bottom: 12px; font-size: 2rem; color: var(--primary);
+    }
+    ul, ol {
+      margin-left: 32px;
+    }
+    .features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 22px 36px; margin-top: 20px;
+    }
+    .feature {
+      background: #232c38; border-radius: 12px; padding: 22px 18px;
+      box-shadow: 0 2px 16px #00f0ff13; position: relative;
+      border-left: 5px solid var(--secondary);
+      font-size: 1.08rem;
+    }
+    .feature strong { color: var(--primary); }
+    .section-divider {
+      height: 2px; background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border: none; margin: 44px 0 32px 0;
+    }
+    .footer {
+      text-align: center; color: #aaf6ff; font-size: 1.02rem; margin-bottom: 18px;
+      opacity: 0.85;
+    }
+    @media (max-width: 700px) {
+      main { padding: 18px 4vw; }
+      .features { grid-template-columns: 1fr; }
+      header { flex-direction: column; gap: 10px; }
+      .logo { width: 70px; height: 70px; }
+      .title { font-size: 2.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.svg" alt="Gary Flow Logo" class="logo" />
+    <div>
+      <div class="title">Gary Flow</div>
+      <div class="tagline">Universal Minecraft Proxy</div>
+    </div>
+  </header>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#setup">Setup</a>
+    <a href="#scaling">Scaling</a>
+    <a href="#plugins">Plugins</a>
+    <a href="https://github.com/Sunpowder/GaryFlow" target="_blank">GitHub</a>
+  </nav>
+  <main>
+    <h2 id="features">Why Gary Flow?</h2>
+    <div class="features">
+      <div class="feature"><strong>Multi-Version Support:</strong> Seamlessly proxy Minecraft clients from 1.7 to 1.20+ with real protocol translation.</div>
+      <div class="feature"><strong>Extreme Performance:</strong> C core with async IO, zero-copy, and optimized concurrency for 10,000+ players.</div>
+      <div class="feature"><strong>Universal Plugins:</strong> Java plugin API for proxy and Paper/Bungee events, hot-reload, and full extensibility.</div>
+      <div class="feature"><strong>Horizontal Scaling:</strong> Backend server pools, load balancing, and failover for massive Minecraft networks.</div>
+      <div class="feature"><strong>Security & Anti-Bot:</strong> Built-in DDoS protection, IP filtering, and advanced connection management.</div>
+      <div class="feature"><strong>Open Source:</strong> Free, transparent, and community-driven. No artificial limits, no TODOs, no compromises.</div>
+    </div>
+    <hr class="section-divider" />
+    <h2 id="setup">Getting Started</h2>
+    <ol>
+      <li><strong>Build the Proxy:</strong> <br>
+        <code>./scripts/build_all.sh</code> (Linux/macOS) or <code>scripts\build_all.bat</code> (Windows)
+      </li>
+      <li><strong>Configure Backend Servers:</strong> <br>
+        Set up Paper servers with <code>online-mode=false</code> and unique ports.
+      </li>
+      <li><strong>Edit Gary Flow Config:</strong> <br>
+        List backend servers in <code>config.yml</code> (see docs).
+      </li>
+      <li><strong>Run Gary Flow:</strong> <br>
+        <code>./build/garyflow</code> (Linux/macOS) or <code>build\garyflow.exe</code> (Windows)
+      </li>
+      <li><strong>Connect:</strong> <br>
+        Players join via Gary Flow’s IP/port (default: 25565).
+      </li>
+    </ol>
+    <hr class="section-divider" />
+    <h2 id="scaling">Scaling & Performance</h2>
+    <ul>
+      <li>Async IO (epoll/IOCP), non-blocking sockets, thread pools</li>
+      <li>Efficient memory/session management, zero-copy packet handling</li>
+      <li>Horizontal scaling: add more backend servers as needed</li>
+      <li>No artificial player limits—hardware is the only constraint</li>
+      <li>Use a modern multi-core CPU, 32GB+ RAM, high-bandwidth network</li>
+    </ul>
+    <hr class="section-divider" />
+    <h2 id="plugins">Plugin System</h2>
+    <ul>
+      <li>Java plugin API: listen to all major proxy events (join, quit, chat, switch, etc)</li>
+      <li>Hot-reload, dynamic loading/unloading, plugin isolation</li>
+      <li>Paper/Bungee plugin compatibility</li>
+      <li>Real-time event dispatch via JNI bridge</li>
+      <li>Place plugins in <code>java/plugins/</code></li>
+    </ul>
+    <hr class="section-divider" />
+    <h2>Open Source & Community</h2>
+    <ul>
+      <li>MIT Licensed, free forever</li>
+      <li>Contributions welcome on <a href="https://github.com/Sunpowder/GaryFlow">GitHub</a></li>
+      <li>Project by <strong>Sunpowder</strong> and the Gary Flow community</li>
+    </ul>
+  </main>
+  <div class="footer">
+    &copy; 2025 Gary Flow. Universal Minecraft Proxy.<br>
+    <span style="color:#2af598;">Brought by the legend of development (not) . and the lead dev. Sunpowder</span>
+  </div>
+</body>
+</html>
