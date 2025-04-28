@@ -1,0 +1,18 @@
+package garyflow;
+
+public enum EventType {
+    PLAYER_JOIN,
+    PLAYER_QUIT,
+    PLAYER_CHAT,
+    PLAYER_COMMAND,
+    PLAYER_KICK,
+    PLAYER_BAN,
+    PLAYER_AUTH,
+    PLAYER_CONNECT,
+    PLAYER_DISCONNECT,
+    SERVER_SWITCH,
+    SERVER_PING,
+    NETWORK,
+    PLUGIN_LIFECYCLE,
+    PLUGIN_MESSAGE
+}
